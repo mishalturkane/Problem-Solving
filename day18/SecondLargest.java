@@ -12,21 +12,25 @@ public class SecondLargest {
         return arr[arr.length-2];
     }
     public static int secLargeOptimised(int [] arr){
-        int min=Integer.MIN_VALUE;
-        int secMax;
-        int max=Integer.MIN_VALUE;
+        int max,secMax;
+        max=secMax=Integer.MIN_VALUE;
         for(int x: arr){
-            if(max>x){
-                max=x;
+            if(x>max){
                 secMax=max;
+                max=x;
+            }else {
+                if(x>secMax && x!=max){
+                    secMax=x;
+                }
             }
-            if()
         }
+        return secMax;
     }
 
+
     public static void main(String[] args) {
-        int [] arr={3,4,5,6,7,7,5,55,6};
-        System.out.println(secLarge(arr));
+        int [] arr={6,8,4,9,2};
+        System.out.println(secLargeOptimised(arr));
     }
     
 }
